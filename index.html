@@ -13,10 +13,16 @@
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>Clean Water for Everyone</h1>
-            <p>Join us in bringing safe, clean water to communities in need.</p>
-            <a href="#call-to-action" class="hero-cta-button">Support the Cause</a>
+        <div class="container hero-layout">
+            <div class="hero-copy">
+                <p class="hero-eyebrow">Every drop matters</p>
+                <h1>Clean Water for Everyone</h1>
+                <p class="hero-subheadline">Join us in bringing safe, clean water to communities in need.</p>
+                <a href="#call-to-action" class="hero-cta-button">Support the Cause</a>
+            </div>
+            <div class="hero-visual">
+                <img src="img/proof-clean-water.jpg" alt="Community receiving clean water access" class="hero-image">
+            </div>
         </div>
     </section>
 
@@ -32,7 +38,7 @@
         <div class="container">
             <h2>Clean Water Changes Everything.</h2>
             <div class="impact-content">
-                <img src="https://imageio.forbes.com/specials-images/imageserve/5e778e6110380d0006fbc05e/Charity-water-image/0x0.png?width=960&dpr=1" alt="Community with clean water access" class="impact-image">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=80" alt="Community with clean water access" class="impact-image">
                 <div class="impact-text">
                     <p>Right now, <strong class="impact-highlight">696 million people</strong> are being held back by a lack of safe, reliable drinking water.</p>
                     <p>Your generosity opens doors to a completely different future by giving children more time in the classroom, keeping families healthy, and restoring dignity to entire communities.</p>
@@ -48,14 +54,23 @@
                 <article class="stat-card">
                     <p class="stat__number" data-target="209200" data-suffix="">0</p>
                     <p class="stat__label">WATER PROJECTS FUNDED</p>
+                    <div class="progress-track">
+                        <span class="progress-fill" data-progress="90"></span>
+                    </div>
                 </article>
                 <article class="stat-card">
                     <p class="stat__number" data-target="29" data-suffix="">0</p>
                     <p class="stat__label">COUNTRIES</p>
+                    <div class="progress-track">
+                        <span class="progress-fill" data-progress="72"></span>
+                    </div>
                 </article>
                 <article class="stat-card">
                     <p class="stat__number" data-target="21641908" data-suffix="">0</p>
                     <p class="stat__label">PEOPLE WILL BE SERVED</p>
+                    <div class="progress-track">
+                        <span class="progress-fill" data-progress="84"></span>
+                    </div>
                 </article>
             </div>
         </div>
@@ -106,6 +121,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
           const stats = document.querySelectorAll('.stat__number');
+          const progressBars = document.querySelectorAll('.progress-fill');
           let hasAnimated = false;
 
           const animateStats = () => {
@@ -134,6 +150,13 @@
 
               requestAnimationFrame(step);
             });
+
+            progressBars.forEach((bar) => {
+              const progress = bar.getAttribute('data-progress') || '0';
+              requestAnimationFrame(() => {
+                bar.style.width = `${progress}%`;
+              });
+            });
           };
 
           const statsSection = document.querySelector('.stats');
@@ -148,7 +171,7 @@
                   }
                 });
               },
-              { threshold: 0.4 }
+              { threshold: 0.35 }
             );
             observer.observe(statsSection);
           } else {
