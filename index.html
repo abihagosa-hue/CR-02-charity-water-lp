@@ -7,41 +7,154 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+    <header class="top-bar">
+        <img src="img/cw_logo.png" alt="Charity: Water logo" class="brand-logo">
+        <a href="#call-to-action" class="top-donate-button">Donate Now</a>
+    </header>
+
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
-
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+        <div class="container">
+            <h1>Clean Water for Everyone</h1>
+            <p>Join us in bringing safe, clean water to communities in need.</p>
+            <a href="#call-to-action" class="hero-cta-button">Support the Cause</a>
         </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <section class="story">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p class="story-lead">Every donation creates a direct path to safe water, healthier families, and stronger communities.</p>
+            <p>We partner with local leaders to build reliable water systems that last, so children can spend more time in school and families can focus on the future.</p>
+        </div>
     </section>
+
+    <section class="impact-story">
+        <div class="container">
+            <h2>Clean Water Changes Everything.</h2>
+            <div class="impact-content">
+                <img src="https://imageio.forbes.com/specials-images/imageserve/5e778e6110380d0006fbc05e/Charity-water-image/0x0.png?width=960&dpr=1" alt="Community with clean water access" class="impact-image">
+                <div class="impact-text">
+                    <p>Right now, <strong class="impact-highlight">696 million people</strong> are being held back by a lack of safe, reliable drinking water.</p>
+                    <p>Your generosity opens doors to a completely different future by giving children more time in the classroom, keeping families healthy, and restoring dignity to entire communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <h2>CHARITY: WATER'S IMPACT TO DATE</h2>
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <p class="stat__number" data-target="209200" data-suffix="">0</p>
+                    <p class="stat__label">WATER PROJECTS FUNDED</p>
+                </article>
+                <article class="stat-card">
+                    <p class="stat__number" data-target="29" data-suffix="">0</p>
+                    <p class="stat__label">COUNTRIES</p>
+                </article>
+                <article class="stat-card">
+                    <p class="stat__number" data-target="21641908" data-suffix="">0</p>
+                    <p class="stat__label">PEOPLE WILL BE SERVED</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="proof-section">
+        <div class="container">
+            <h2>What Clean Water Changes</h2>
+            <div class="proof-story">
+                <div class="proof-panel">
+                    <img src="https://www.unlv.edu/sites/default/files/styles/1920_width/public/media/image/2022-05/africa_water_1849049587.jpeg?itok=8e5KefQl" alt="Community before clean water access">
+                    <div class="proof-caption">
+                        <span>Before</span>
+                        <p>Families walk long distances to find safe water.</p>
+                    </div>
+                </div>
+                <div class="proof-panel">
+                    <img src="https://cdn.streamlabscharity.com/causes/headers/297811596196057088/jBToNXgONFeNDC6JSuCps7ikVRAgHXpojk5GemBS.jpg" alt="Community after clean water access">
+                    <div class="proof-caption">
+                        <span>After</span>
+                        <p>Clean water gives children more time to learn and thrive.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="proof-grid">
+                <figure class="proof-card">
+                    <img src="https://cdn.shopify.com/s/files/1/2214/1491/files/131030_charitywaterMalawi_EH_6261200x450.jpg?14621301877510169715" alt="Children collecting clean water">
+                    <figcaption>Families gaining time and opportunity</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action" id="call-to-action">
+        <div class="container">
+            <h2>Make a Difference</h2>
+            <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
+            <a href="#" class="donate-button">Donate Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Charity: Water</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const stats = document.querySelectorAll('.stat__number');
+          let hasAnimated = false;
+
+          const animateStats = () => {
+            if (hasAnimated) return;
+            hasAnimated = true;
+
+            stats.forEach((stat) => {
+              const target = parseInt(stat.getAttribute('data-target'), 10);
+              const suffix = stat.getAttribute('data-suffix') || '';
+              const duration = 1400;
+              const startTime = performance.now();
+
+              const step = (now) => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(eased * target);
+                const formattedCurrent = current.toLocaleString();
+                stat.textContent = formattedCurrent + suffix;
+
+                if (progress < 1) {
+                  requestAnimationFrame(step);
+                } else {
+                  stat.textContent = target.toLocaleString() + suffix;
+                }
+              };
+
+              requestAnimationFrame(step);
+            });
+          };
+
+          const statsSection = document.querySelector('.stats');
+
+          if ('IntersectionObserver' in window && statsSection) {
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    animateStats();
+                    observer.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.4 }
+            );
+            observer.observe(statsSection);
+          } else {
+            animateStats();
+          }
+        });
+    </script>
 </body>
 </html>
